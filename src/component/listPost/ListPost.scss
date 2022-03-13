@@ -1,0 +1,56 @@
+.listpost {
+    border-left            : 1px solid rgb(12, 179, 12);
+    border-bottom          : 1px solid rgb(12, 179, 12);
+    border-right           : 1px solid #f5f5f5;
+    border-top             : 1px solid #f5f5f5;
+    border-top-right-radius: 12px;
+    border-top-left-radius : 12px;
+    overflow               : hidden;
+    margin-top             : 20px;
+
+    .lispost__header {
+        font-size       : 20px;
+        padding         : 20px 10px;
+        border-bottom   : 1px solid #444;
+        background-color: #6abd45;
+        text-align      : center;
+        color           : #fff;
+    }
+
+    .listpost__list {
+
+
+        .listpost__item {
+            display      : flex;
+            border-bottom: 1px solid #dbdbdb;
+            font-size    : 16px;
+            padding      : 10px 20px;
+            font-weight  : 400;
+            gap          : 10px;
+
+            .listpost__img {
+                height  : 50px;
+                width   : 60px;
+                overflow: hidden;
+
+                img {
+                    height: 100%;
+                    width : 100%;
+                }
+            }
+
+            .lispost__info {
+                .listpost__category {
+                    font-size : 12px;
+                    font-style: italic;
+                    color     : #ccc;
+                }
+            }
+
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+
+}

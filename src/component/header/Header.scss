@@ -1,0 +1,248 @@
+.header {
+    height          : 100px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow      : 0 0 10px #444;
+    ;
+
+
+    @keyframes faceIn {
+        0% {
+            opacity: 0;
+            top    : -50%;
+        }
+
+        100% {
+            top: 0;
+
+            opacity: 100;
+        }
+
+    }
+
+    .header-wrap {
+        height         : 100px;
+        width          : 100%;
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+        transform      : all .3 linear;
+
+        &.header__fixed {
+            padding               : 0 calc(calc(1539px - 1200px)/2);
+            height                : 80px;
+            position              : fixed;
+            top                   : 0;
+            background-color      : hsla(0, 15%, 94%, 0.9);
+            z-index               : 100;
+            left                  : 0;
+            right                 : 0;
+            // width              : 1200px;
+            margin                : 0 auto;
+            animation             : faceIn 1.4s ease-in-out;
+            box-shadow            : 0 0 10px #444;
+
+
+        }
+
+        .header__left {
+            height        : 100%;
+            display       : flex;
+            // align-items: center;
+
+            .header__logo {
+                height: 100%;
+
+
+                img {
+                    height: 100%;
+                    cursor: pointer;
+                }
+            }
+
+            .header__navbar {
+                display    : flex;
+                align-items: center;
+                margin-left: 10px;
+                position   : relative;
+                gap        : 10px;
+
+                .header__navbar-item {
+                    display    : flex;
+                    align-items: center;
+                    min-width  : 100px;
+
+
+                    &>a {
+                        display    : inline;
+                        width      : 100%;
+                        padding    : 10px 0;
+                        cursor     : pointer;
+                        text-align : center;
+                        font-size  : 20px;
+                        font-weight: 300;
+                        color      : #00c500;
+                        position   : relative;
+                        overflow   : hidden;
+
+
+                        &:hover::after {
+                            width: 100%;
+
+                            .navbar-list {
+                                visibility: visible;
+                                transform : translateY(0);
+                            }
+                        }
+
+
+                        &::after {
+                            content      : '';
+                            display      : block;
+                            position     : absolute;
+                            border-bottom: 3px solid red;
+                            width        : 0;
+                            transition   : all .3s linear;
+
+                        }
+
+
+
+                    }
+
+
+                }
+            }
+        }
+
+        .navbar-list {
+            position        : absolute;
+            top             : 100%;
+            visibility      : hidden;
+            padding         : 12px;
+            background-color: #f5f5f5;
+            min-width       : 170px;
+            display         : flex;
+            flex-direction  : column;
+            justify-content : space-around;
+            gap             : 8px;
+            cursor          : pointer;
+            box-shadow      : 0 0 10px #ccc;
+            transform       : translateY(-20px);
+
+            transition: all .1s linear;
+
+            span {
+                display: block;
+            }
+        }
+
+
+        .header__right {
+            display    : flex;
+            align-items: center;
+            gap        : 20px;
+
+            .header__cart {
+
+                display : block;
+                position: relative;
+
+                &:hover .toastcart {
+                    visibility: visible;
+                }
+
+                i {
+                    // padding    : 12px;
+                    font-size  : 28px;
+                    font-weight: 700;
+                    color      : rgb(0, 197, 0);
+                    cursor     : pointer;
+                    display    : block;
+                }
+
+                span {
+                    font-size       : 14px;
+                    top             : 0;
+                    right           : 0px;
+                    padding         : 2px 4px;
+                    font-weight     : 400;
+                    color           : #000;
+                    background-color: #a5eba5;
+                    border-radius   : 20px;
+                    position        : absolute;
+                }
+            }
+
+            .header__user {
+
+                .header__user-info {
+                    display    : flex;
+                    gap        : 6px;
+                    align-items: center;
+                    user-select: none;
+                    cursor     : pointer;
+                    position   : relative;
+
+                    &::after {
+                        content         : '';
+                        display         : block;
+                        position        : absolute;
+                        height          : 50px;
+                        width           : 100%;
+                        top             : 70%;
+                        z-index         : 100;
+                        background-color: transparent;
+                    }
+
+                    &:hover .user__navbar {
+                        display: block;
+                    }
+
+                    .user__navbar {
+                        position        : absolute;
+                        top             : calc(100% + 10px);
+                        z-index         : 101;
+                        background-color: #fff;
+                        box-shadow      : 0 0 10px #ccc;
+                        cursor          : pointer;
+                        border-radius   : 10px;
+                        display         : none;
+                        width           : 100%;
+
+                        .user__navbar-item {
+                            padding  : 10px;
+                            font-size: 18px;
+                        }
+                    }
+
+                    .header__user-img {
+                        height       : 50px;
+                        width        : 50px;
+                        border-radius: 50%;
+                        overflow     : hidden;
+
+                        img {
+                            height: 100%;
+                            width : 100%;
+                        }
+                    }
+
+                    span {
+                        font-size  : 20px;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+
+            a {
+                display    : block;
+                padding    : 12px;
+                font-size  : 28px;
+                font-weight: 700;
+                color      : rgb(0, 197, 0);
+                cursor     : pointer;
+            }
+        }
+    }
+}

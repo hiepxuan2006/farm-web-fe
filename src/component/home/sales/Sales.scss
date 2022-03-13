@@ -1,0 +1,28 @@
+.sales {
+    margin: 50px 0;
+
+    .sales__heading {
+        font-size     : 20px;
+        color         : #777;
+        width         : 100%;
+        text-align    : center;
+        padding-bottom: 30px;
+    }
+
+    .sales__content {
+        width   : 100%;
+        height  : 100%;
+        overflow: hidden;
+
+        .sales__img {
+            width     : 100%;
+            height    : 100%;
+            transform : scale(1);
+            transition: all .2s linear;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

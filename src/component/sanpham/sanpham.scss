@@ -1,0 +1,129 @@
+.productdetail {
+    margin-top    : 30px;
+    padding-bottom: 40px;
+
+    .productdetail__wrap {
+        border-bottom : 1px solid #dbdbdb;
+        padding-bottom: 100px;
+
+
+        .productdetail__img {
+            width           : 100%;
+            height          : 550px;
+            background-color: aqua;
+            overflow        : hidden;
+
+            img {
+                height: 100%;
+                width : 100%;
+
+            }
+        }
+
+        .productdetail__info {
+            margin-top: 20px;
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .productdetail__info-price {
+                padding  : 30px 0;
+                font-size: 18px;
+            }
+
+            .productdetail__desc {
+                font-size     : 18px;
+                padding-bottom: 20px;
+            }
+
+            .buttons__quantity {
+                font-size: 20px;
+                display  : flex;
+                border   : 1px solid #ccc;
+                width    : 120px;
+
+                .minus {
+                    padding         : 10px;
+                    background-color: #dbdbdb;
+                    cursor          : pointer;
+                }
+
+                .quantity {
+                    padding   : 10px;
+                    flex      : 1;
+                    text-align: center;
+                }
+
+                .plus {
+                    background-color: #dbdbdb;
+
+                    cursor : pointer;
+                    padding: 10px;
+                }
+            }
+
+            .productdetail__btn {
+                padding         : 10px;
+                width           : 140px;
+                background-color: #5abd6a;
+                border          : none;
+                cursor          : pointer;
+                margin          : 30px 0;
+                user-select     : none;
+                filter          : brightness(0.8);
+
+                &:hover {
+                    filter: brightness(1);
+                }
+            }
+
+            .productdetail_category {
+                display   : flex;
+                gap       : 10px;
+                margin-top: 50px;
+            }
+        }
+    }
+
+    .productdetail__text {
+        p {
+            line-height: 1.5;
+            margin     : 10px 0;
+            text-align : justify !important;
+
+            h2 {
+                margin: 20px 0;
+            }
+
+            h3 {
+                margin: 20px 0;
+            }
+
+            ul {
+                padding-left: 40px;
+            }
+
+            h4 {
+                margin: 20px 0;
+            }
+
+            p {
+                margin: 20px 0;
+            }
+
+            span {}
+        }
+    }
+
+    .listProduct {
+        margin: 20px 0;
+
+        .listProduct__heading {
+            padding   : 20px 0;
+            font-size : 20px;
+            color     : #777;
+            text-align: center;
+        }
+    }
+}

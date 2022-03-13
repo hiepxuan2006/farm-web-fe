@@ -1,0 +1,27 @@
+.slider {
+    // padding-top: 120px;
+
+    .slider__baner {
+        position     : relative;
+        display      : block;
+        overflow     : hidden;
+        user-select  : none;
+        margin-bottom: 50px;
+
+        .swiper-wrapper {
+            width                : 100%;
+            height               : 580px;
+            display              : grid;
+            grid-template-columns: repeat(4, 100%);
+            position             : relative;
+
+            .slider__desc {
+                width              : 100%;
+                height             : 100%;
+                background-repeat  : no-repeat;
+                background-size    : cover;
+                background-position: 0 0 0;
+            }
+        }
+    }
+}

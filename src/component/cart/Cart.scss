@@ -1,0 +1,57 @@
+.cart {
+    min-height: calc(100vh - 200px);
+
+    .cart__list {
+        padding      : 10px;
+        box-shadow   : 0 0 10px #ccc;
+        border-radius: 10px;
+
+        .cart__item {
+            display    : flex;
+            align-items: center;
+            align-items: center;
+            padding    : 10px;
+            gap        : 10px;
+
+            .cart__item-img {
+                height  : 80px;
+                width   : 80px;
+                overflow: hidden;
+
+                img {
+                    height: 100%;
+                    width : 100%;
+                }
+            }
+
+            .cart__item-desc {
+                flex: 2
+            }
+
+            .buttons__quantity {
+                display: flex;
+                border : 1px solid #dbdbdb;
+                width  : 150px;
+
+                .cart__btn {
+                    padding         : 14px;
+                    background-color: #ccc;
+                    cursor          : pointer;
+                }
+
+                .quantity {
+                    flex           : 1;
+                    display        : flex;
+                    align-items    : center;
+                    justify-content: center;
+
+                    width: 50px;
+                }
+            }
+
+            .sumPrice {
+                flex: 1;
+            }
+        }
+    }
+}

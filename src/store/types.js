@@ -20,6 +20,7 @@ export const ADMIN_LOGIN_SUCCESS = 'ADMIN_LOGIN_SUCCESS'
 // cart
 export const ADD_CART = 'ADD_CART'
 export const ADD_QUANTITY = 'ADD_QUANTITY'
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 
 

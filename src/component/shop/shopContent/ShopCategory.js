@@ -15,6 +15,7 @@ function ShopCategory(props) {
             dispatch(getProductCategory(slug.category))
         }
         getProduct()
+        window.scrollTo(0, 0)
     }, [dispatch, slug])
     console.log(products);
     return (

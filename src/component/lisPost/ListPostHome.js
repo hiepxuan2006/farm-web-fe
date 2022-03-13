@@ -15,6 +15,8 @@ function ListPostHome(props) {
       dispatch(getAllPost());
     };
     getPost();
+    window.scrollTo(0, 0)
+
   }, [dispatch]);
   return (
     <div className="lisposthome">

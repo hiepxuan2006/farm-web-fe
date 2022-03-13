@@ -103,3 +103,10 @@ export const addQuantity = (data) => async dispatch => {
 
     }
 }
+export const removeCart = (data) => async dispatch => {
+    try {
+        dispatch({ type: Types.REMOVE_FROM_CART, payload: data })
+    } catch (error) {
+
+    }
+}

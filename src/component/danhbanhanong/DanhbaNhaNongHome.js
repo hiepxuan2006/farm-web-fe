@@ -14,6 +14,8 @@ function DanhbaNhaNongHome(props) {
             dispatch(getAllCompany());
         };
         getCategory();
+        window.scrollTo(0, 0)
+
     }, [dispatch]);
     return (
         <div className="grid wide">

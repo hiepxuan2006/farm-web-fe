@@ -16,6 +16,8 @@ function PostDetail(props) {
       dispatch(getPostFindId(slug.ten));
     };
     getCategory();
+    window.scrollTo(0, 0)
+
   }, [dispatch, slug.ten]);
   console.log(postId);
   return (

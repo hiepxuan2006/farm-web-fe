@@ -3,16 +3,25 @@ import styled from "styled-components";
 import { baseURL } from "../../Context/ContTant";
 function ToastCart(props) {
   const { cart } = props;
+  const formatter = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND'
+  })
   return (
     <ToastCartWrap className="toastcart">
       {cart &&
         cart.map((item, index) => (
-          <div className="toastcart__item">
+          <div className="toastcart__item" key={index}>
             <div className="toastcart__img">
               <img src={`${baseURL}/${item.img1}`} alt="" />
             </div>
             <div className="toastcart__desc">
               <p className="">{item.Name}</p>
+              <p style={{
+                fontSize: '12px',
+                marginTop: '4px',
+                color: '#ccc'
+              }}>{item.qty} x {formatter.format(item.price)}</p>
             </div>
           </div>
         ))}
@@ -21,6 +30,7 @@ function ToastCart(props) {
         {/* <button>Mua hàng</button> */}
       </div>
     </ToastCartWrap>
+
   );
 }
 

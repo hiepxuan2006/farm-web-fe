@@ -7,7 +7,6 @@ import ToastCart from "./ToastCart";
 function Cart(props) {
   const dispatch = useDispatch()
   const carts = useSelector((state) => state.categoryReducer.cart)
-  console.log(carts.lenght);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
@@ -28,6 +27,12 @@ function Cart(props) {
     style: 'currency',
     currency: 'VND'
   })
+
+  const hanleOder = () => {
+    if (carts)
+      alert('Chưa có sản phẩm')
+  }
+  console.log(carts.lenght);
   return (
     <CartWrap className="cart">
       <div className="grid wide">
@@ -55,13 +60,13 @@ function Cart(props) {
           <div className="col l-4">
             <div className="cart__navbar" style={{
               padding: '10px',
-              height: '200px',
               borderRadius: '10px',
               boxShadow: '0 0 10px #ccc'
             }}>
-              <h1 style={{ marginTop: '' }}>Cart Summary</h1>
-              <h3 style={{ padding: ' 0' }}>Tổng Tiền: {formatter.format(totalPrice)}</h3>
+              <h1>Cart Summary</h1>
+              <h3 >Tổng Tiền: {formatter.format(totalPrice)}</h3>
               <p>Tổng số sản phẩm: {totalItems}</p>
+              <button onClick={hanleOder}>Tiến hành đặt hàng</button>
             </div>
           </div>
         </div>

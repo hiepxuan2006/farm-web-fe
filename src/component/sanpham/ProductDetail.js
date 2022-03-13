@@ -23,6 +23,8 @@ function ProductDetail(props) {
     dispatch(getProductId(slug.idsp));
     dispatch(getAllProduct());
     dispatch(getALLCategory());
+    window.scrollTo(0, 0)
+
   }, [dispatch, slug]);
   const [quantity, setQuantity] = useState(1);
   const updateQuantity = (type) => {
@@ -32,7 +34,15 @@ function ProductDetail(props) {
       setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
     }
   };
-
+  const addToCart = () => {
+    const result = dispatch(addcart({ ...productitem, qty: quantity }))
+    if (result)
+      alert('Thêm vào giỏ hàng thành công')
+  }
+  const formatter = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND'
+  })
   return (
     <div className="productdetail">
       <div className="grid wide">
@@ -46,7 +56,7 @@ function ProductDetail(props) {
             <div className="col l-6">
               <div className="productdetail__info">
                 <h1>{productitem.Name}</h1>
-                <p className="productdetail__info-price">{productitem.price}</p>
+                <p className="productdetail__info-price">{formatter.format(productitem.price)}</p>
                 <div className="productdetail__desc">
                   <i className="fa-solid fa-square-check"></i>
                   <span>Gọi để đặt hàng: 1900 000</span>
@@ -74,7 +84,7 @@ function ProductDetail(props) {
                 </div>
 
                 <button
-                  // onClick={() => addToCart()}
+                  onClick={() => addToCart()}
                   className="productdetail__btn"
                 >
                   Thêm vào giỏ hàng

@@ -1,18 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { AuthContext } from "../../../Context/AuthContext";
 import { baseURL } from "../../../Context/ContTant";
 import { addcart } from "../../../store/action/categoryAction";
 function ProductItem(props) {
-  const productContext = useContext(AuthContext)
 
   const { product, className } = props
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.categoryReducer.cart);
   const addtoCart = (product) => {
-    dispatch(addcart(product))
+    dispatch(addcart({ ...product, qty: 1 }))
     alert('Thêm vào giỏ hàng thành công')
   }
   const formatter = new Intl.NumberFormat('vi-VN', {

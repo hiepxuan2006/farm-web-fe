@@ -15,6 +15,8 @@ function CompanyDetail(props) {
       dispatch(getCompanyFindId(slug.tencty));
     };
     getCategory();
+    window.scrollTo(0, 0)
+
   }, [dispatch]);
   console.log(companyId);
   return (

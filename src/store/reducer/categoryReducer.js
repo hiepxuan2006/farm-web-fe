@@ -8,10 +8,7 @@ const initialState = {
     product: '',
     productCategory: '',
     productId: '',
-    cart: [
-
-
-    ]
+    cart: []
 }
 
 const categoryReducer = (state = initialState, action) => {
@@ -73,16 +70,17 @@ const categoryReducer = (state = initialState, action) => {
 
 
             );
-            console.log('payload', payload);
+            console.log('payload', inCart);
             return {
                 ...state,
                 cart: inCart
-                    ? state.cart.map((item) =>
+                    ?
+                    state.cart.map((item) =>
                         item._id === action.payload._id
                             ? { ...item, qty: item.qty + 1 }
                             : item
                     )
-                    : [...state.cart, { ...payload, qty: 1 }],
+                    : [...state.cart, { ...payload }],
             };
 
         case Types.ADD_QUANTITY:
@@ -96,6 +94,11 @@ const categoryReducer = (state = initialState, action) => {
                         ? { ...item, qty: item.qty + 1 }
                         : { ...item })
             }
+        case Types.REMOVE_FROM_CART:
+            return {
+                ...state,
+                cart: state.cart.filter((item) => item._id !== payload),
+            };
         default:
             return state
     }

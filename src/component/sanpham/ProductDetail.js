@@ -23,7 +23,7 @@ function ProductDetail(props) {
     dispatch(getProductId(slug.idsp));
     dispatch(getAllProduct());
     dispatch(getALLCategory());
-  }, [dispatch]);
+  }, [dispatch, slug]);
   const [quantity, setQuantity] = useState(1);
   const updateQuantity = (type) => {
     if (type === "plus") {

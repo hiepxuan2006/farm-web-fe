@@ -4,6 +4,9 @@
     box-shadow      : 0 0 10px #444;
     ;
 
+    &.hidden {
+        display: none;
+    }
 
     @keyframes faceIn {
         0% {
@@ -235,7 +238,7 @@
             }
 
 
-            a {
+            i {
                 display    : block;
                 padding    : 12px;
                 font-size  : 28px;

@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Auth from "./component/auth/Auth";
+import Cart from "./component/cart/Cart";
 import CompanyDetail from "./component/company/CompanyDetail";
 import DanhbaNhaNong from "./component/danhbanhanong/DanhbaNhaNong";
 import DanhbaNhaNongHome from "./component/danhbanhanong/DanhbaNhaNongHome";
@@ -16,8 +16,13 @@ import Shop from "./component/shop/Shop";
 import ShopCategory from "./component/shop/shopContent/ShopCategory";
 import ShopHome from './component/shop/shopContent/ShopHome';
 import AuthContextProvider from "./Context/AuthContext";
-import Cart from "./component/cart/Cart";
+import Auth from './component/auth/Auth'
 import './grid.scss';
+import { Admin } from "./admin/Admin";
+import { ListProduct } from "./admin/listProduct/ListProduct";
+import { AddProduct } from "./admin/addProduct/AddProduct";
+import { ListCategory } from "./admin/category/ListCategory";
+import { ListUser } from "./admin/listUser/ListUser";
 function App() {
   return (
     <AuthContextProvider>
@@ -39,13 +44,15 @@ function App() {
               <Route path="/chia-se-kien-thuc/:ten" element={<PostDetail />} />
               <Route path="/chia-se-kien-thuc/" element={<ListPostHome />} />
             </Route>
-            <Route
-              exact
-              path="/register"
-              element={<Auth authRoute="register" />}
-            />
-            <Route path="/login" element={<Auth authRoute="login" />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Auth />} />
+            <Route path="/register" element={<Auth />} />
+            <Route path="/admin" element={<Admin />} >
+              <Route path="/admin/danh-sach-san-pham" element={<ListProduct />} />
+              <Route path="/admin/them-san-pham" element={<AddProduct />} />
+              <Route path="/admin/danh-sach-phan-loai" element={<ListCategory />} />
+              <Route path="/admin/danh-sach-khach-hang" element={<ListUser />} />
+            </Route>
           </Routes>
           <GoToTop />
           <Footer />

@@ -44,7 +44,7 @@ function CartItem(props) {
         <h4>Thành tiền:{props.formatter.format(cart.price * cart.qty)}</h4>
       </div>
       <div className="cart__remove" onClick={() => removeForCart()}>
-        <i class="fa-solid fa-trash-can"></i>
+        <i className="fa-solid fa-trash-can"></i>
       </div>
     </div>
   );

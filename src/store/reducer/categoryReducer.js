@@ -6,9 +6,13 @@ const initialState = {
     post: '',
     postId: '',
     product: '',
+    productrd: '',
+    productPage: '',
+    totalPage: '',
     productCategory: '',
     productId: '',
     cart: []
+
 }
 
 const categoryReducer = (state = initialState, action) => {
@@ -49,6 +53,19 @@ const categoryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 product: payload
+            }
+        case Types.GET_PRODUCT_PAGE:
+
+            return {
+                ...state,
+                productPage: payload.results,
+                totalPage: payload.totalPage
+            }
+        case Types.GET_PRODUCT_RANDOM:
+
+            return {
+                ...state,
+                productrd: payload
             }
         case Types.GET_PRODUCT_CATEGORY:
 

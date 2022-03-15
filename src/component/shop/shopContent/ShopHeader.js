@@ -17,7 +17,7 @@ function ShopHeader(props) {
                     <option disabled value="DEFAULT">
                         Lựa chọn
                     </option>
-                    <option value="">Mới nhất</option>
+                    <option value="/cua-hang/moi-nhat"></option>
                     <option value="">Theo giá từ thấp đến cao</option>
                     <option value="">Theo giá từ cao đến thấp</option>
                 </select>

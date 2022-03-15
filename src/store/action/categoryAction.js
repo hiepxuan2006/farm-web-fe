@@ -66,6 +66,26 @@ export const getAllProduct = (data) => async dispatch => {
 
     }
 }
+export const getAllProductPage = (data) => async dispatch => {
+    try {
+        const product = await axios.get(`${baseApi}/product/?page=${data}`)
+
+        dispatch({ type: Types.GET_PRODUCT_PAGE, payload: product.data })
+
+    } catch (error) {
+
+    }
+}
+export const getAllProductRandom = (data) => async dispatch => {
+    try {
+        const product = await axios.get(`${baseApi}/product/random`)
+
+        dispatch({ type: Types.GET_PRODUCT_RANDOM, payload: product.data.results })
+
+    } catch (error) {
+
+    }
+}
 export const getProductCategory = (data) => async dispatch => {
     try {
         const product = await axios.get(`${baseApi}/product/category?category=${data}`)

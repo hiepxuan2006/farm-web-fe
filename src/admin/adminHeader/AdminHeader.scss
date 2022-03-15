@@ -1,0 +1,54 @@
+.admin__header {
+    align-items    : center;
+    width          : 360px;
+    justify-content: space-between;
+    overflow       : hidden;
+    position       : fixed;
+    height         : 100%;
+    border-radius  : 20px;
+
+
+    .admin__header-user {
+        display         : flex;
+        gap             : 10px;
+        align-items     : center;
+        background-color: #303c54;
+
+
+        .admin__header-img {
+            width        : 80px;
+            height       : 80px;
+            overflow     : hidden;
+            border-radius: 50%;
+            border       : 1px solid #3c4b64;
+
+            img {
+                display: block;
+                height : 100%;
+                width  : 100%;
+            }
+
+        }
+
+        .admin__header-name {
+            font-size  : 24px;
+            color      : #fff;
+            font-weight: 600;
+        }
+    }
+
+    .admin__header-action {
+        .admin__header-list {
+            .admin__header-item {
+                display  : block;
+                font-size: 20px;
+                border   : 1px solid #ccc;
+                cursor   : pointer;
+                padding  : 12px;
+                display  : block;
+
+
+            }
+        }
+    }
+}

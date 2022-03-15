@@ -1,19 +1,21 @@
 import React from "react";
-import Login from "./login/Login";
+import { useLocation, useParams } from "react-router-dom";
 import "./Auth.scss";
+import Login from "./login/Login";
 import Register from "./register.js/Register";
 
 function Auth(props) {
-  const { authRoute } = props
+
+  const location = useLocation()
+
   return (
-    <div className="auth__content">
-      <div className="modal">
-
-        {(authRoute === 'login') && < Login />}
-        {(authRoute === 'register' && <Register />)}
-
-      </div>
-
+    <div className={`auth login`}>
+      {
+        location.pathname === '/login' && <Login />
+      }
+      {
+        location.pathname === '/register' && <Register />
+      }
     </div>
   );
 }

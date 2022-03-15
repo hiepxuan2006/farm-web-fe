@@ -19,7 +19,6 @@ const AuthContextProvider = ({ children }) => {
             const response = await axios.get(`${baseApi}/auth/`)
             if (response.data.success) {
                 dispatch(userSetAuth(response.data.user))
-                console.log(response.data.user);
                 if (response.data.user.isAdmin)
                     dispatch(setAdmin(response.data.user))
             }

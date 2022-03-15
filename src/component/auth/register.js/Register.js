@@ -4,6 +4,7 @@ import { registerUser } from "../../../store/action/authAction";
 
 function Register(props) {
   const [isHiddenPass, setIsHiddenPass] = useState(true);
+  const [isHiddenPassConf, setIsHiddenPassConf] = useState(true);
   // const [fileImage, setFileImage] = useState('')
   const [valueForm, setValueForm] = useState({
     userName: "",
@@ -15,8 +16,14 @@ function Register(props) {
   const [confirmPassword, setConfirmPassword] = useState("");
   const { email, password, userName, fileImage } = valueForm;
 
-  const handleHiddenPassword = () => {
-    setIsHiddenPass(!isHiddenPass);
+  const handleHiddenPassword = (type) => {
+    if (type === 'pass') {
+
+      setIsHiddenPass(!isHiddenPass);
+    } else if (type === 'conf') {
+
+      setIsHiddenPassConf(!isHiddenPassConf)
+    }
   };
 
   const [urlImage, setUrlImage] = useState("");
@@ -59,12 +66,12 @@ function Register(props) {
   }
   console.log(data);
   return (
-    <div className="auth">
+    <div className="auth__content">
       <div className="auth-wrap">
         <div className="auth__heading">
           <h1>Register</h1>
         </div>
-        <form className="auth__form" onSubmit={handleRegister} enctype="multipart/form-data">
+        <form className="auth__form" onSubmit={handleRegister} encType="multipart/form-data">
           <div className="group__input" >
             <div className="auth__form-input">
               <i className="fa-solid fa-circle-user"></i>
@@ -102,8 +109,8 @@ function Register(props) {
                 type={`${isHiddenPass ? "password" : "text"}`}
               />
               <i
-                onClick={handleHiddenPassword}
-                style={{ cursor: "pointer" }}
+                onClick={() => handleHiddenPassword('pass')}
+                style={{ cursor: "pointer", position: 'absolute', right: '10px' }}
                 className={`${isHiddenPass ? "fas fa-eye-slash" : "fas fa-eye"}`}
               ></i>
             </div>
@@ -118,9 +125,9 @@ function Register(props) {
                 type={`${isHiddenPass ? "password" : "text"}`}
               />
               <i
-                onClick={handleHiddenPassword}
-                style={{ cursor: "pointer" }}
-                className={`${isHiddenPass ? "fas fa-eye-slash" : "fas fa-eye"}`}
+                onClick={() => handleHiddenPassword('conf')}
+                style={{ cursor: "pointer", position: 'absolute', right: '10px' }}
+                className={`${isHiddenPassConf ? "fas fa-eye-slash" : "fas fa-eye"}`}
               ></i>
             </div>
           </div>

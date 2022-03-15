@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import { baseURL } from "../../Context/ContTant";
 import ToastCart from "../cart/ToastCart";
 import "./Header.scss";
 function Header(props) {
-  const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.authReducer.isLogin);
   const isAdmin = useSelector((state) => state.adminReducer.isAdmin);
   const userInfo = useSelector((state) => state.authReducer.userInfo);
+  const cart = useSelector((state) => state.categoryReducer.cart);
   const [scrollY, setScrollY] = useState("");
   useEffect(() => {
     const setScrolly = () => {
       setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", setScrolly);
-  });
-  const cart = useSelector((state) => state.categoryReducer.cart);
+  }, [scrollY]);
+  const location = useLocation();
+  console.log(isAdmin);
   return (
-    <div className="header">
+    <div
+      className={`header ${location.pathname === "/login" || location.pathname === "/register"
+        ? "hidden"
+        : ""
+        }`}
+    >
       <div className="grid wide">
         <div
           className={` header-wrap  ${scrollY > 250 ? "header__fixed" : ""}`}
@@ -26,6 +32,7 @@ function Header(props) {
           <div className="header__left ">
             <div className="header__logo">
               <img src={`${baseURL}/logo-farm.png`} alt="" />
+              ``
             </div>
             <ul className="header__navbar">
               <li className="header__navbar-item">
@@ -51,7 +58,7 @@ function Header(props) {
             </ul>
           </div>
           <div className="header__right">
-            <Link to='/cart' className="header__cart ">
+            <Link to="/cart" className="header__cart ">
               <i className="fa-brands fa-opencart"></i>
               <span>{cart && cart.length}</span>
               <ToastCart cart={cart} />
@@ -65,7 +72,7 @@ function Header(props) {
                   <span>{userInfo.userName}</span>
                   <ul className="user__navbar">
                     {isAdmin ? (
-                      <li className="user__navbar-item">Manage</li>
+                      <Link to='/admin' className="user__navbar-item">Manage</Link>
                     ) : (
                       ""
                     )}
@@ -74,7 +81,9 @@ function Header(props) {
                   </ul>
                 </div>
               ) : (
-                <Link to="/login" className="fa-solid fa-circle-user"></Link>
+                <div>
+                  <Link to="/login" className="fa-solid fa-circle-user"></Link>
+                </div>
               )}
             </div>
           </div>

@@ -41,7 +41,7 @@ const ToastCartWrap = styled.div`
   top: 60px;
   border-radius: 10px;
   visibility: hidden;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s linear;
   background-color: #fff;
   position: absolute;
   box-shadow: 0 0 10px #ccc;

@@ -1,18 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllProduct } from "../../../store/action/categoryAction";
+import { getAllProduct, getAllProductRandom } from "../../../store/action/categoryAction";
 import ProductItem from "../../shop/shopContent/ProductItem";
 import styled from 'styled-components'
 function Product(props) {
   const dispatch = useDispatch()
-  const products = useSelector((state) => state.categoryReducer.product)
+  const products = useSelector((state) => state.categoryReducer.productrd)
   useEffect(() => {
     const getProduct = () => {
-      dispatch(getAllProduct())
+      dispatch(getAllProductRandom())
     }
     getProduct()
   }, [dispatch])
+  console.log(products);
   return (
     <ProductWrap className="product">
       <div className="product__heading">

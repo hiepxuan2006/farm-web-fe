@@ -4,9 +4,13 @@ import CartItem from "./CartItem";
 import "./Cart.scss";
 import { useDispatch, useSelector } from "react-redux";
 import ToastCart from "./ToastCart";
+import { useSearchParams } from "react-router-dom";
 function Cart(props) {
+  const slug = useSearchParams()
+  console.log(slug);
   const dispatch = useDispatch()
   const carts = useSelector((state) => state.categoryReducer.cart)
+  const isLogin = useSelector((state) => state.authReducer.isLogin)
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
 
@@ -29,8 +33,11 @@ function Cart(props) {
   })
 
   const hanleOder = () => {
-    if (carts)
-      alert('Chưa có sản phẩm')
+    if (isLogin)
+
+
+      if (carts.length)
+        alert('Chưa có sản phẩm')
   }
   console.log(carts.lenght);
   return (
@@ -71,7 +78,6 @@ function Cart(props) {
           </div>
         </div>
       </div>
-      <ToastCart />
     </CartWrap >
   );
 }

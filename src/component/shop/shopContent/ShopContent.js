@@ -66,8 +66,8 @@ function ShopContent(props) {
           <p className="navigation__page-item" onClick={() => props.setPage(1)}>
             1
           </p>
-          <p className="navigation__page-item">1</p>
-          <p className="navigation__page-item">1</p>
+          <p className="navigation__page-item" onClick={() => props.setPage(2)}>2</p>
+          <p className="navigation__page-item" onClick={() => props.setPage(3)}>3</p>
           <p class="fa-solid fa-angle-right" onClick={() => setNextPage()}></p>
         </NavigationPage>
       </div>
